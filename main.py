@@ -6,12 +6,10 @@ from telegram.ext import MessageHandler
 from commands.maintenance import maintenance
 from configurations import settings
 from configurations.settings import IS_MAINTENANCE
-from utils import create_requirement_folders
 from utils import logger
 
 if __name__ == "__main__":
     logger.init_logger(f"logs/{settings.NAME}.log")
-    create_requirement_folders()
     application = (Application.builder().token(
         settings.TOKEN).read_timeout(50).write_timeout(
             50).get_updates_read_timeout(50).persistence(persistence).build())
